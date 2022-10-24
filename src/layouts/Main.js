@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import { Outlet } from 'react-router-dom';
 import Header from '../pages/shared/Header';
 import Leftsite from '../pages/shared/Leftsite';
@@ -9,11 +9,13 @@ const Main = () => {
         <div>
             <Header></Header>
             <Container>
-                <Row lg="2">
-                    <Leftsite></Leftsite>
-                </Row>
-                <Row lg="10">
-                    <Outlet></Outlet>
+                <Row>
+                    <Col lg="3">
+                        <Leftsite></Leftsite>
+                    </Col>
+                    <Col lg="9">
+                        <Outlet></Outlet>
+                    </Col>
                 </Row>
             </Container>
         </div>
