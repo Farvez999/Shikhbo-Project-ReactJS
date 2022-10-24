@@ -2,14 +2,13 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Courses from '../Courses/Courses';
 
-const Home = () => {
-    const allCourses = useLoaderData()
-    console.log(allCourses);
+const Category = () => {
+    const categoriesCourse = useLoaderData()
     return (
         <div>
-            <h2>This is Home: {allCourses.length}</h2>
+            <h2>This is Category : {categoriesCourse.length}</h2>
             {
-                allCourses.map(course =>
+                categoriesCourse.map(course =>
                     <Courses
                         key={course.key} course={course}>
                     </Courses>
@@ -19,4 +18,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Category;
