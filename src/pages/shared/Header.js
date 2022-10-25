@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import Leftsite from './Leftsite';
 import { FaUserAlt } from "react-icons/fa";
+import logo from '../../image/logo.png'
 
 const Header = () => {
     const { user, logout } = useContext(AuthContext)
@@ -23,7 +24,16 @@ const Header = () => {
     return (
         <Navbar className='mb-4' collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
-                <Navbar.Brand><Link style={{ textDecoration: 'none' }} to='/'>Shikhbo</Link></Navbar.Brand>
+                <Navbar.Brand href="#home">
+                    <img
+                        alt=""
+                        src={logo}
+                        width="30"
+                        height="30"
+                        className="d-inline-block align-top"
+                    />{' '}
+                    <Link style={{ textDecoration: 'none' }} to='/'>Shikhbo</Link>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
