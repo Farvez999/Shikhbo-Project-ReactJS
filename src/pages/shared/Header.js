@@ -10,7 +10,16 @@ import Leftsite from './Leftsite';
 import { FaUserAlt } from "react-icons/fa";
 
 const Header = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logout } = useContext(AuthContext)
+
+    const handleLogout = () => {
+        logout()
+            .then(() => { })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+
     return (
         <Navbar className='mb-4' collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
@@ -35,10 +44,14 @@ const Header = () => {
                     </Nav>
                     <Nav>
                         <Nav.Link>
-                            <Link
-                                style={{ textDecoration: 'none' }}
-                                to='/login'
-                            >{user?.uid ? 'Logout' : 'Login'}</Link>
+                            {user?.uid ?
+                                <p onClick={handleLogout}>Logout</p>
+                                :
+                                <Link
+                                    style={{ textDecoration: 'none' }}
+                                    to='/login'>Login</Link>
+
+                            }
                         </Nav.Link>
                         {/* <Nav.Link href="/login">Login</Nav.Link> */}
                         <Nav.Link href="#memes">
