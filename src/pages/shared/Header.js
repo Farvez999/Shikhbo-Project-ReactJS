@@ -34,7 +34,13 @@ const Header = () => {
                         </NavDropdown>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="/login">Login</Nav.Link>
+                        <Nav.Link>
+                            <Link
+                                style={{ textDecoration: 'none' }}
+                                to='/login'
+                            >{user?.uid ? 'Logout' : 'Login'}</Link>
+                        </Nav.Link>
+                        {/* <Nav.Link href="/login">Login</Nav.Link> */}
                         <Nav.Link href="#memes">
                             {user?.displayName}
                         </Nav.Link>

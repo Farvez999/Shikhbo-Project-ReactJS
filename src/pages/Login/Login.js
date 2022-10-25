@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { ButtonGroup } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
@@ -8,9 +8,10 @@ import { AuthContext } from '../../contexts/AuthProvider';
 
 const Login = () => {
     const googleProvider = new GoogleAuthProvider();
-    const { googleLogin } = useContext(AuthContext);
+    const githubProvider = new GithubAuthProvider();
+    const { googleLogin, githubLogin } = useContext(AuthContext);
 
-    const handleGoogleLOgin = () => {
+    const handleGoogleLogin = () => {
         googleLogin(googleProvider)
             .then(result => {
                 const user = result.user;
@@ -21,6 +22,20 @@ const Login = () => {
                 console.log(error);
             });
     }
+
+    const handleGithubLogin = () => {
+        githubLogin(githubProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+
+
     return (
         <div>
             <Form>
@@ -44,8 +59,8 @@ const Login = () => {
 
             <div className='justify-content-between align-items-center'>
                 <ButtonGroup vertical>
-                    <Button onClick={handleGoogleLOgin} className='mb-2' variant="primary"><FaGoogle></FaGoogle> Login With Google</Button>
-                    <Button variant="dark"><FaGithub></FaGithub> Login With GitHub</Button>
+                    <Button onClick={handleGoogleLogin} className='mb-2' variant="primary"><FaGoogle></FaGoogle> Login With Google</Button>
+                    <Button onClick={handleGithubLogin} variant="dark"><FaGithub></FaGithub> Login With GitHub</Button>
                 </ButtonGroup>
             </div>
         </div>
