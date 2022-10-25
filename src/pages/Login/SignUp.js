@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const SignUp = () => {
-    const { createUser } = useContext(AuthContext)
+    const { createUser, updateUserProfile } = useContext(AuthContext)
 
     const [error, setError] = useState('')
+
+    const [accepted, setAccepted] = useState(false)
 
     const handleSubmit = event => {
         event.preventDefault()
@@ -25,12 +27,28 @@ const SignUp = () => {
                 console.log(user);
                 setError('')
                 form.reset();
+                handleUpdateUserProfile(name, photoURL)
                 toast.success('Please verify Your email address before login!');
             })
             .catch(error => {
                 console.error('error', error);
                 setError(error.message)
             })
+    }
+
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL,
+        }
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(error => console.error(error.message))
+
+    }
+
+    const handleAccepted = (event) => {
+        setAccepted(event.target.checked);
     }
 
     return (
@@ -60,11 +78,12 @@ const SignUp = () => {
 
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check
+                    onClick={handleAccepted}
                     type="checkbox"
                     label={<>Accept <Link to='/terms'>Terms and Conditions</Link></>} />
             </Form.Group>
             <p>Already Have a account please <Link to='/login'>Login</Link></p>
-            <Button className='mb-4' variant="primary" type="submit">
+            <Button className='mb-4' variant="primary" type="submit" disabled={!accepted}>
                 Register
             </Button>
             <Form.Text className="text-danger">
