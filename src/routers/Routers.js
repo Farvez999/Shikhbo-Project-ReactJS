@@ -5,6 +5,9 @@ import Checkout from "../pages/Courses/Checkout";
 import CoursesDetails from "../pages/Courses/CoursesDetails";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
+import SignUp from "../pages/Login/SignUp";
+import TermsAndConditions from "../pages/Other/TermsAndConditions";
+import PrivateRouter from "./PrivateRouter";
 
 export const router = createBrowserRouter([
     {
@@ -28,7 +31,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/checkout/:id",
-                element: <Checkout></Checkout>,
+                element: <PrivateRouter><Checkout></Checkout></PrivateRouter>,
                 loader: ({ params }) => fetch(`https://learning-platform-server-omega.vercel.app/courses/${params.id}`)
             },
             {
@@ -39,7 +42,15 @@ export const router = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login></Login>
-            }
+            },
+            {
+                path: "/register",
+                element: <SignUp></SignUp>
+            },
+            {
+                path: "/terms",
+                element: <TermsAndConditions></TermsAndConditions>
+            },
         ]
     }
 ]);
