@@ -1,7 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layouts/Main";
 import Category from "../pages/Category/Category";
-import Courses from "../pages/Courses/Courses";
+import Checkout from "../pages/Courses/Checkout";
+import CoursesDetails from "../pages/Courses/CoursesDetails";
 import Home from "../pages/Home/Home";
 
 export const router = createBrowserRouter([
@@ -18,6 +19,16 @@ export const router = createBrowserRouter([
                 path: "/courses",
                 element: <Home></Home>,
                 loader: () => fetch('https://learning-platform-server-omega.vercel.app/courses')
+            },
+            {
+                path: "/courses/:id",
+                element: <CoursesDetails></CoursesDetails>,
+                loader: ({ params }) => fetch(`https://learning-platform-server-omega.vercel.app/courses/${params.id}`)
+            },
+            {
+                path: "/checkout/:id",
+                element: <Checkout></Checkout>,
+                loader: ({ params }) => fetch(`https://learning-platform-server-omega.vercel.app/courses/${params.id}`)
             },
             {
                 path: "/courses-categories/:id",
