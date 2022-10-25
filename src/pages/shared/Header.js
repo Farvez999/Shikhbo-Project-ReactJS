@@ -1,22 +1,26 @@
 import React, { useContext } from 'react';
+import { Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import Leftsite from './Leftsite';
+import { FaUserAlt } from "react-icons/fa";
 
 const Header = () => {
     const { user } = useContext(AuthContext)
     return (
         <Navbar className='mb-4' collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
-                <Navbar.Brand href='/'>Shikhbo</Navbar.Brand>
+                <Navbar.Brand><Link style={{ textDecoration: 'none' }} to='/'>Shikhbo</Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href='/courses'>Courses</Nav.Link>
-                        <Nav.Link href="#pricing">Pricing</Nav.Link>
+                        <Nav.Link><Link style={{ textDecoration: 'none' }} to='/courses'>Courses</Link></Nav.Link>
+                        <Nav.Link href="#pricing">FAQ</Nav.Link>
+                        <Nav.Link href="#pricing">Blog</Nav.Link>
                         <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">
@@ -30,9 +34,20 @@ const Header = () => {
                         </NavDropdown>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#deets">{user.displayName}</Nav.Link>
-                        <Nav.Link eventKey={2} href="#memes">
-                            Dank memes
+                        <Nav.Link href="/login">Login</Nav.Link>
+                        <Nav.Link href="#memes">
+                            {user?.displayName}
+                        </Nav.Link>
+                        <Nav.Link href="#memes">
+                            {user?.photoURL ?
+                                <Image
+                                    style={{ height: '30px' }}
+                                    roundedCircle
+                                    src={user?.photoURL}>
+
+                                </Image>
+                                : <FaUserAlt></FaUserAlt>
+                            }
                         </Nav.Link>
                     </Nav>
                     <div className='d-lg-none'>
@@ -40,7 +55,7 @@ const Header = () => {
                     </div>
                 </Navbar.Collapse>
             </Container>
-        </Navbar>
+        </Navbar >
     );
 };
 

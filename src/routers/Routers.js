@@ -4,6 +4,7 @@ import Category from "../pages/Category/Category";
 import Checkout from "../pages/Courses/Checkout";
 import CoursesDetails from "../pages/Courses/CoursesDetails";
 import Home from "../pages/Home/Home";
+import Login from "../pages/Login/Login";
 
 export const router = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
                 element: <Category></Category>,
                 loader: ({ params }) => fetch(`https://learning-platform-server-omega.vercel.app/courses-categories/${params.id}`)
             },
+            {
+                path: "/login",
+                element: <Login></Login>
+            }
         ]
     }
 ]);

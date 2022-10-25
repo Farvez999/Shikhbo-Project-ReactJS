@@ -11,13 +11,14 @@ const Leftsite = () => {
     }, [])
     return (
         <div>
-            <h2>Categories : {categories.length}</h2>
+            <h6>Courses Categories</h6>
             <div>
                 {
                     categories.map(category =>
                         <p
                             key={category.id}>
                             <Link
+                                style={{ textDecoration: 'none' }}
                                 to={`/courses-categories/${category.id}`}>{category.name}
                             </Link>
                         </p>)

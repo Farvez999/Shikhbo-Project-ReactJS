@@ -1,6 +1,8 @@
 import React from 'react';
-import { Button, Card } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
+import { Card } from 'react-bootstrap';
+import { Link, useLoaderData } from 'react-router-dom';
+import { FaCalendarAlt } from "react-icons/fa";
+import { BsAlarm } from "react-icons/bs";
 
 const CoursesDetails = () => {
     const courses = useLoaderData()
@@ -13,10 +15,10 @@ const CoursesDetails = () => {
                 <Card.Title>{description}</Card.Title>
                 <Card.Text className='mt-3'>
                     <h3>Price : {price}</h3>
-                    <p>Courses Duration : {courses_duration}</p>
-                    <p>Starting Date : {starting_date}</p>
+                    <p><BsAlarm></BsAlarm> {courses_duration}</p>
+                    <p><FaCalendarAlt></FaCalendarAlt> {starting_date}</p>
                 </Card.Text>
-                <Button variant="primary" href={`/checkout/${id}`}>Get premium access</Button>
+                <Link className='btn btn-primary' to={`/checkout/${id}`}>Get premium access</Link>
             </Card.Body>
         </Card>
     );
