@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { Button, Image, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import React, { useContext, useState } from 'react';
+import { Button, Form, Image, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -12,6 +12,7 @@ import logo from '../../image/logo.png'
 
 const Header = () => {
     const { user, logout } = useContext(AuthContext)
+    const [toggle, setToggle] = useState(true)
 
     const handleLogout = () => {
         logout()
@@ -42,6 +43,19 @@ const Header = () => {
                         <Nav.Link><Link style={{ textDecoration: 'none' }} to='/blog'>Blog</Link></Nav.Link>
 
                     </Nav>
+
+                    <Nav>
+                        <Form>
+                            <Form.Check
+                                className='p-2'
+                                type="switch"
+                                id="custom-switch"
+                                onClick={() => { setToggle(!toggle) }}
+                                label={toggle ? "Dark" : "Light"}
+                            />
+                        </Form>
+                    </Nav>
+
                     <Nav>
                         <Nav.Link>
                             {user?.uid ?
