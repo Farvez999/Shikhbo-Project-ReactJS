@@ -12,7 +12,7 @@ const Leftsite = () => {
     }, [])
     return (
         <div>
-            <h6>Courses Categories</h6>
+            <h6 className='mb-4'>Courses Categories</h6>
             <div>
                 {
                     categories.map(category =>

@@ -40,17 +40,7 @@ const Header = () => {
                         <Nav.Link><Link style={{ textDecoration: 'none' }} to='/courses'>Courses</Link></Nav.Link>
                         <Nav.Link><Link style={{ textDecoration: 'none' }} to='/faq'>FAQ</Link></Nav.Link>
                         <Nav.Link><Link style={{ textDecoration: 'none' }} to='/blog'>Blog</Link></Nav.Link>
-                        <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">
-                                Another action
-                            </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">
-                                Separated link
-                            </NavDropdown.Item>
-                        </NavDropdown>
+
                     </Nav>
                     <Nav>
                         <Nav.Link>
@@ -63,15 +53,13 @@ const Header = () => {
 
                             }
                         </Nav.Link>
-                        {/* <Nav.Link href="/login">Login</Nav.Link> */}
-                        <Nav.Link href="#memes">
+                        {/* <Nav.Link>
                             {user?.displayName}
-                        </Nav.Link>
-                        <Nav.Link href="#memes">
+                        </Nav.Link> */}
+                        <Nav.Link>
                             {/* {<Tooltip id={user?.photoURL}>Tooltip!</Tooltip>} */}
                             {user?.photoURL ?
                                 <>
-
                                     <OverlayTrigger placement="bottom" overlay={
                                         <Tooltip placement="right">{user?.displayName}</Tooltip>}>
                                         <span className="d-inline-block">
@@ -85,7 +73,7 @@ const Header = () => {
                                     </OverlayTrigger>
 
                                 </>
-                                : <FaUserAlt></FaUserAlt>
+                                : <></>
                             }
                         </Nav.Link>
                     </Nav>

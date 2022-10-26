@@ -10,7 +10,6 @@ const CoursesDetails = () => {
     const courses = useLoaderData()
     const { id, name, image, price, description, courses_duration, starting_date } = courses;
 
-    // const ref = React.createRef();
     const ref = React.createRef()
 
     return (
