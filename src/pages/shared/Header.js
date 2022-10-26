@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Image } from 'react-bootstrap';
+import { Button, Image, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -38,8 +38,8 @@ const Header = () => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link><Link style={{ textDecoration: 'none' }} to='/courses'>Courses</Link></Nav.Link>
-                        <Nav.Link href="#pricing">FAQ</Nav.Link>
-                        <Nav.Link href="#pricing">Blog</Nav.Link>
+                        <Nav.Link><Link style={{ textDecoration: 'none' }} to='/faq'>FAQ</Link></Nav.Link>
+                        <Nav.Link><Link style={{ textDecoration: 'none' }} to='/blog'>Blog</Link></Nav.Link>
                         <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">
@@ -68,13 +68,23 @@ const Header = () => {
                             {user?.displayName}
                         </Nav.Link>
                         <Nav.Link href="#memes">
+                            {/* {<Tooltip id={user?.photoURL}>Tooltip!</Tooltip>} */}
                             {user?.photoURL ?
-                                <Image
-                                    style={{ height: '30px' }}
-                                    roundedCircle
-                                    src={user?.photoURL}>
+                                <>
 
-                                </Image>
+                                    <OverlayTrigger placement="bottom" overlay={
+                                        <Tooltip placement="right">{user?.displayName}</Tooltip>}>
+                                        <span className="d-inline-block">
+                                            <Image
+                                                style={{ height: '30px' }}
+                                                roundedCircle
+                                                src={user?.photoURL}
+                                            >
+                                            </Image>
+                                        </span>
+                                    </OverlayTrigger>
+
+                                </>
                                 : <FaUserAlt></FaUserAlt>
                             }
                         </Nav.Link>

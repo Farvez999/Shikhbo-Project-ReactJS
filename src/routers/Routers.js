@@ -6,6 +6,8 @@ import CoursesDetails from "../pages/Courses/CoursesDetails";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/Login/SignUp";
+import Blog from "../pages/Other/Blog";
+import FAQ from "../pages/Other/FAQ";
 import TermsAndConditions from "../pages/Other/TermsAndConditions";
 import PrivateRouter from "./PrivateRouter";
 
@@ -38,6 +40,7 @@ export const router = createBrowserRouter([
                 path: "/courses-categories/:id",
                 element: <Category></Category>,
                 loader: ({ params }) => fetch(`https://learning-platform-server-omega.vercel.app/courses-categories/${params.id}`)
+                // loader: ({ params }) => fetch(`https://learning-platform-server-omega.vercel.app/courses/${params.id}`)
             },
             {
                 path: "/login",
@@ -50,6 +53,14 @@ export const router = createBrowserRouter([
             {
                 path: "/terms",
                 element: <TermsAndConditions></TermsAndConditions>
+            },
+            {
+                path: "/faq",
+                element: <FAQ></FAQ>
+            },
+            {
+                path: "/blog",
+                element: <Blog></Blog>
             },
         ]
     }

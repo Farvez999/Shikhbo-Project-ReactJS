@@ -88,10 +88,7 @@ const Login = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control name='password' type="password" placeholder="Password" required />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
-                <p>Your are new user <Link to='/register'>Create a new Account</Link></p>
+                <p>No account yet? <Link to='/register'>Sign up</Link></p>
                 <Button className='mb-4' variant="primary" type="submit">
                     Login
                 </Button>
@@ -103,8 +100,8 @@ const Login = () => {
 
             <div className='justify-content-between align-items-center'>
                 <ButtonGroup vertical>
-                    <Button onClick={handleGoogleLogin} className='mb-2' variant="primary"><FaGoogle></FaGoogle> Login With Google</Button>
-                    <Button onClick={handleGithubLogin} variant="dark"><FaGithub></FaGithub> Login With GitHub</Button>
+                    <Button onClick={handleGoogleLogin} className='mb-2' variant="outline-primary"><FaGoogle></FaGoogle> Login With Google</Button>
+                    <Button onClick={handleGithubLogin} variant="outline-dark"><FaGithub></FaGithub> Login With GitHub</Button>
                 </ButtonGroup>
             </div>
         </div>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Leftsite = () => {
@@ -16,10 +17,13 @@ const Leftsite = () => {
                 {
                     categories.map(category =>
                         <p
+                            style={{ backgroundColor: 'blue', color: 'red', padding: '4px', borderRadius: '5px', textAlign: 'center' }}
                             key={category.id}>
                             <Link
-                                style={{ textDecoration: 'none' }}
-                                to={`/courses-categories/${category.id}`}>{category.name}
+                                style={{ textDecoration: 'none', color: 'white', }}
+                                to={`/courses-categories/${category.id}`}
+                            // to={`/courses/${category.id}`}
+                            >{category.name}
                             </Link>
                         </p>)
                 }

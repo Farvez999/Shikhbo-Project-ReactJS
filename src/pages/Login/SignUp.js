@@ -28,7 +28,7 @@ const SignUp = () => {
                 setError('')
                 form.reset();
                 handleUpdateUserProfile(name, photoURL)
-                toast.success('Please verify Your email address before login!');
+                toast.success('Sign up successful..!');
             })
             .catch(error => {
                 console.error('error', error);
@@ -54,8 +54,8 @@ const SignUp = () => {
     return (
         <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Your Name</Form.Label>
-                <Form.Control name="name" type="text" placeholder="Enter Name" />
+                <Form.Label>Your Full Name</Form.Label>
+                <Form.Control name="name" type="text" placeholder="Enter Full Name" />
 
             </Form.Group>
 
@@ -82,7 +82,7 @@ const SignUp = () => {
                     type="checkbox"
                     label={<>Accept <Link to='/terms'>Terms and Conditions</Link></>} />
             </Form.Group>
-            <p>Already Have a account please <Link to='/login'>Login</Link></p>
+            <p>Already have an account? <Link to='/login'>Log in</Link></p>
             <Button className='mb-4' variant="primary" type="submit" disabled={!accepted}>
                 Register
             </Button>
