@@ -9,10 +9,10 @@ Develop your skill with the best industry experts through live learning, task-ba
 Shikhbo Live Demo Link -> [Shikhbo App](https://learning-platform-website.web.app/).
 
 ## Context API
-Documentation Link -> [Link](https://reactjs.org/docs/context.html#api)
+Documentation Link -> [Context API](https://reactjs.org/docs/context.html#api)
 
 ## React Router Dom v6.4 
-Documentation Link -> [Link](https://reactrouter.com/en/main/start/overview)
+Documentation Link -> [React Router Dom](https://reactrouter.com/en/main/start/overview)
 
 ## Resources & Credits
 Firebase -> [Firebase](https://console.firebase.google.com/)
