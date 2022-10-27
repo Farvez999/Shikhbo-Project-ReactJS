@@ -57,12 +57,10 @@ const Header = () => {
                             {user?.uid ?
                                 <p onClick={handleLogout}>Logout</p>
                                 :
-                                <>
-                                    <Link
-                                        style={{ textDecoration: 'none' }}
-                                        to='/login'>Login
-                                    </Link>
-                                </>
+                                <Link
+                                    style={{ textDecoration: 'none' }}
+                                    to='/login'>Login
+                                </Link>
                             }
                         </Nav.Link>
                         {/* <Nav.Link>

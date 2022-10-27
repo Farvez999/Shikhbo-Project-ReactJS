@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import toast, { Toaster } from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const SignUp = () => {
@@ -10,6 +10,8 @@ const SignUp = () => {
     const [error, setError] = useState('')
 
     const [accepted, setAccepted] = useState(false)
+
+    const navigate = useNavigate();
 
     const handleSubmit = event => {
         event.preventDefault()
@@ -29,6 +31,7 @@ const SignUp = () => {
                 form.reset();
                 handleUpdateUserProfile(name, photoURL)
                 toast.success('Sign up successful..!');
+                navigate("/login");
             })
             .catch(error => {
                 console.error('error', error);
