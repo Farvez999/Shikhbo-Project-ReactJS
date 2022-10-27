@@ -5,15 +5,15 @@ import Courses from '../Courses/Courses';
 
 const Home = () => {
     const allCourses = useLoaderData()
-    console.log(allCourses);
+    // console.log(allCourses);
     return (
         <div>
-            <h3>Total Course : {allCourses.length}</h3>
+            <h3 className='text-center mb-2'>Total Course : {allCourses.length}</h3>
             <Row xs={1} md={3} className="g-4 mb-4">
                 {
                     allCourses.map(course =>
                         <Courses
-                            key={course.key} course={course}>
+                            key={course.id} course={course}>
                         </Courses>
                     )
                 }

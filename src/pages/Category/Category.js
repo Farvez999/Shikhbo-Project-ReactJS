@@ -7,7 +7,7 @@ const Category = () => {
     const categoriesCourse = useLoaderData()
     return (
         <div>
-            <h3>Total Course : {categoriesCourse.length}</h3>
+            <h3 className='text-center'>Total Course : {categoriesCourse.length}</h3>
             <Row xs={1} md={3} className="g-4 mb-4">
                 {
                     categoriesCourse.map(course =>

@@ -13,7 +13,7 @@ const Login = () => {
     const { googleLogin, githubLogin, logInUser } = useContext(AuthContext);
 
     const navigate = useNavigate();
-    let location = useLocation();
+    const location = useLocation();
 
     let from = location.state?.from?.pathname || "/";
 
@@ -24,7 +24,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
-
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log(error);
@@ -36,7 +36,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
-
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log(error);
@@ -58,19 +58,10 @@ const Login = () => {
                 setError('')
                 form.reset();
                 navigate(from, { replace: true });
-                // if (user.emailVerified) {
-                //     navigate(from, { replace: true });
-                // }
-                // else {
-                //     toast.error('Your email is not verified.Please checked your email')
-                // }
             })
             .catch(error => {
                 console.error('error', error);
                 setError(error.message);
-            })
-            .finally(() => {
-                // setLoading(false);
             })
     }
 

@@ -1,14 +1,12 @@
 import React, { useContext, useState } from 'react';
-import { Button, Form, Image, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Form, Image, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import Leftsite from './Leftsite';
-import { FaUserAlt } from "react-icons/fa";
 import logo from '../../image/logo.png'
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     const { user, logout } = useContext(AuthContext)
@@ -44,6 +42,7 @@ const Header = () => {
 
                     </Nav>
 
+
                     <Nav>
                         <Form>
                             <Form.Check
@@ -54,17 +53,16 @@ const Header = () => {
                                 label={toggle ? "Dark" : "Light"}
                             />
                         </Form>
-                    </Nav>
-
-                    <Nav>
                         <Nav.Link>
                             {user?.uid ?
                                 <p onClick={handleLogout}>Logout</p>
                                 :
-                                <Link
-                                    style={{ textDecoration: 'none' }}
-                                    to='/login'>Login</Link>
-
+                                <>
+                                    <Link
+                                        style={{ textDecoration: 'none' }}
+                                        to='/login'>Login
+                                    </Link>
+                                </>
                             }
                         </Nav.Link>
                         {/* <Nav.Link>

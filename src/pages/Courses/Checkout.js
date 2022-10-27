@@ -5,7 +5,7 @@ const Checkout = () => {
     const courses = useLoaderData()
     return (
         <div>
-            <h3>{courses.name}</h3>
+            <h3 className='text-center'>Successful your course Enrol : {courses.name}</h3>
         </div>
     );
 };
